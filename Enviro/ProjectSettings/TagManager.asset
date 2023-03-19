@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectible01
+  - Enemy_01
   layers:
   - Default
   - TransparentFX
