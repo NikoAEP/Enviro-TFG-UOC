@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     private enum MovementState { idle, running, jumping, falling }; // listado de los diferentes estados
 
-    // Start is called before the first frame update
+    [SerializeField] private AudioSource jumpSFX;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && OnGround()) // si presionamos la tecla de salto y estamos en el suelo
         {
+            jumpSFX.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce); // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
         }
 
