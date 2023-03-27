@@ -9,8 +9,7 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     [SerializeField] private Text healthTxt;
-    [SerializeField] private int health = 100;
-    private int destroyed = 0;
+
     [SerializeField] private Text trashDestroyed;
 
     [SerializeField] private AudioSource destroySFX;
@@ -25,17 +24,18 @@ public class PlayerLife : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy_01"))
+        if(collision.gameObject.CompareTag("Enemy_01") && GameManager.instance.health > 0)
         {
-            health -= 5;
-            healthTxt.text = "Health: " + health;
+            GameManager.instance.health -= 5;
+            healthTxt.text = GameManager.instance.health.ToString();
             damageSFX.Play();
-            if(health <= 0)
+                  
+        }
+        if(GameManager.instance.health <= 0)
             {
                 dieSFX.Play();
                 Die();
-            }            
-        }
+            }      
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,8 +44,8 @@ public class PlayerLife : MonoBehaviour
         {
             destroySFX.Play();
             Destroy(collision.gameObject);
-            destroyed++;
-            trashDestroyed.text = "Surabas: " + destroyed;
+            GameManager.instance.destroyed++;
+            trashDestroyed.text = GameManager.instance.destroyed.ToString();
         }
     }
 

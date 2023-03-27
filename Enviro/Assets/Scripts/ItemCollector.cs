@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
-    private int collected = 0;
     [SerializeField] private Text score;
 
     [SerializeField] private AudioSource collectSFX;
@@ -16,8 +15,8 @@ public class ItemCollector : MonoBehaviour
         {
             collectSFX.Play();
             Destroy(collision.gameObject);
-            collected++;
-            score.text = "Recyclos: " + collected;
+            GameManager.instance.collected++;
+            score.text = GameManager.instance.collected.ToString();
         }
     }
 }
