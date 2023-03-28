@@ -9,8 +9,6 @@ public class LevelComplete : MonoBehaviour
     private AudioSource winSFX;
 
     private bool levelCompleted = false;
-    [SerializeField] private Text recyclosTxt;
-    [SerializeField] private Text surabasTxt;
     
     private void Start()
     {
@@ -21,12 +19,11 @@ public class LevelComplete : MonoBehaviour
     {
         if(collision.gameObject.name == "Player" && !levelCompleted)
         {
-            int recyclosScore = int.Parse(recyclosTxt.text);
-            int surabasScore = int.Parse(surabasTxt.text);
             winSFX.Play();
             levelCompleted = true;
             Invoke("CompleteLevel", 2f);
-            GameManager.instance.LoadNextLevel(recyclosScore, surabasScore);
+            GameManager.instance.currentLevel++;
+            GameManager.instance.LoadNextLevel();
        }
         
     }

@@ -27,7 +27,7 @@ public class EnemyCollectibleSpawner : MonoBehaviour
         GenerateCollectibles(difficulty);
     }
 
-    void GenerateEnemies(int difficulty)
+    private void GenerateEnemies(int difficulty)
     {
         // Define a random number generator
         System.Random rnd = new System.Random();
@@ -50,7 +50,7 @@ public class EnemyCollectibleSpawner : MonoBehaviour
         }
     }
 
-    void GenerateCollectibles(int difficulty)
+    private void GenerateCollectibles(int difficulty)
     {
         // Define a random number generator
         System.Random rnd = new System.Random();

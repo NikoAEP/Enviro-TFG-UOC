@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
-    [SerializeField] private Text score;
-
     [SerializeField] private AudioSource collectSFX;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,8 +13,7 @@ public class ItemCollector : MonoBehaviour
         {
             collectSFX.Play();
             Destroy(collision.gameObject);
-            GameManager.instance.collected++;
-            score.text = GameManager.instance.collected.ToString();
+            GameManager.instance.CollectibleCollected(5);
         }
     }
 }

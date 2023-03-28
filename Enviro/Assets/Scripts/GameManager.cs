@@ -8,11 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    public int difficulty;
-    public int health;
-    public int collected;
-    public int destroyed;
-    public int score;    
+    public int difficulty = 1;
+    public int currentLevel = 1;
+    public int maxLevel = 3;
+
+    public int maxHealth = 100; 
+    public int currentHealth = 100;
+    
+    public int currentScore = 0;
+    public int overallScore = 0;    
+
+    public Text healthText;
+    public Text scoreText;
 
     private void Awake()
     {
@@ -21,7 +28,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
+        else
         {
             Destroy(gameObject);
         }        
@@ -30,17 +37,50 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         difficulty = 1; // dificultad por defecto
-        health = 100;
-        collected = 0;
-        destroyed = 0;
-        score = 0;
+        currentHealth = maxHealth;
+        currentScore = 0;
+        overallScore = 0; 
+        UpdateHealthUI();
+        UpdateScoreUI();
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        UpdateHealthUI();
+    }
+    
+    public void EnemyDestroyed(int points)
+    {
+        currentScore += points;
+        UpdateScoreUI();
+    }
+    public void CollectibleCollected(int points)
+    {
+        currentScore += points;
+        UpdateScoreUI();
     }
 
-    public void LoadNextLevel(int collectibleScore, int enemyScore)
+    private void UpdateHealthUI()
     {
-        int levelScore = collectibleScore + enemyScore;
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + currentHealth;
+        }
+    }
 
-        difficulty = levelScore / 2; // Determine difficulty based on total score
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + currentScore;
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        overallScore += currentScore;
+        difficulty = (overallScore / 2); // Determine difficulty based on total score
 
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
