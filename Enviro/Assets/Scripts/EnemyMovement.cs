@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour
     private float dirX = 1f; // creamos variable de dirección en el eje x
     private float maxX = 4f;
     private float minX = -4f;
-    private enum MovementState { moving }; // listado de los diferentes estados
     
     void Start()
     {

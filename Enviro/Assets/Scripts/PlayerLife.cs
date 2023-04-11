@@ -22,35 +22,21 @@ public class PlayerLife : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy_01") && GameManager.instance.currentHealth > 0)
         {
-            GameManager.instance.TakeDamage(5);
-            damageSFX.Play();
-                  
+            anim.SetTrigger("hit");
+            damageSFX.Play();     
         }
         if(GameManager.instance.currentHealth <= 0)
-            {
-                dieSFX.Play();
-                Die();
-            }      
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy_01"))
         {
-            destroySFX.Play();
-            Destroy(collision.gameObject);
-            GameManager.instance.EnemyDestroyed(5);
-        }
+            dieSFX.Play();
+            Die();
+        }      
     }
 
     private void Die()
     {
         rb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
+        GameManager.instance.GameOver();
     }
 
-    private void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }

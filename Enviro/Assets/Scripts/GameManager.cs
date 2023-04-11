@@ -92,4 +92,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("You've reached the end of the game!");
         }
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("End_Screen");
+        difficulty = 1; // dificultad por defecto
+        currentHealth = maxHealth;
+        currentScore = 0;
+        overallScore = 0; 
+        UpdateHealthUI();
+        UpdateScoreUI();
+    }
 }
