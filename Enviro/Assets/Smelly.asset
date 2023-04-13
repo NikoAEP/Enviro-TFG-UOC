@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Smelly
   m_EditorClassIdentifier: 
   prefab: {fileID: 233408866008349263, guid: 6d4eb7f770f18dc4a9946f49a09f5f1b, type: 3}
+  typeName: Smelly
   health: 10
   attackDamage: 3
   value: 2
   spawnChance:
-  - 3
-  - 2
-  - 2
+  - 1
+  - 0.8
+  - 0.5

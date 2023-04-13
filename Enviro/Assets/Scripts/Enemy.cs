@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private AudioSource dieSFX;
     private int maxHealth;
     private int currentHealth;
-    /*[SerializeField] private int attackDamage;
-    [SerializeField] private int value;*/
     
     private void Start()
     {
@@ -35,7 +33,7 @@ public class Enemy : MonoBehaviour
             currentHealth -= 5;
             //anim.SetTrigger("hit");
         }
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             GameManager.instance.EnemyDestroyed(type.value);
             anim.SetTrigger("death");

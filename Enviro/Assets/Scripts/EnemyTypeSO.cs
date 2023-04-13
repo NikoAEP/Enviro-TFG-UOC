@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyType : ScriptableObject
 {
     public GameObject prefab;
+    public string typeName;
     public int health;
     public int attackDamage;
     public int value;

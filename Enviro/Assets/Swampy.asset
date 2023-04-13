@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932ae5432bdda9f40b1b6804d1dd212f, type: 3}
   m_Name: Swampy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 233408866008349263, guid: a4646d4dd42186740a3bb0c3fccf0cf3, type: 3}
+  typeName: Swampy
   health: 15
   attackDamage: 8
   value: 10
   spawnChance:
   - 0
-  - 2
-  - 4
+  - 0.8
+  - 1

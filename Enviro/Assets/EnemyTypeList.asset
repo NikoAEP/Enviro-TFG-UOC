@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28942d17a56b92843b5cf2db0c6a9c75, type: 3}
   m_Name: EnemyTypeList
   m_EditorClassIdentifier: 
-  enemyTypes:
+  types:
   - {fileID: 11400000, guid: bfb930a9a7ef53944af2997c4e5cdf47, type: 2}
   - {fileID: 11400000, guid: 87df3e9e30482c64d9508ec9b7bbcc7b, type: 2}
   - {fileID: 11400000, guid: e6ef69c28c224da428b1920d36beeed0, type: 2}

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    public int difficulty = 1;
+    public int difficulty = 2;
     public int currentLevel = 1;
     public int maxLevel = 3;
 
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        difficulty = 1; // dificultad por defecto
+        difficulty = 2; // dificultad por defecto
         currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 

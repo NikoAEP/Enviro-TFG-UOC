@@ -4,60 +4,126 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    const string LEFT = "left";
+    const string RIGHT = "right";
 
-    private Transform rb; // creamos variable del Rigidbody
-    private BoxCollider2D coll; // creamos variable del Colisionador
-    private SpriteRenderer sprite; // creamos variable del sprite de animación
-    private Animator anim; // creamos variable animador
-
-    [SerializeField] private float horizontalSpeed = 5f; // creamos variable serializada de la velocidad de movimiento
-    private float dirX = 1f; // creamos variable de dirección en el eje x
-    private float maxX = 4f;
-    private float minX = -4f;
+    Rigidbody2D rb; // creamos variable del Rigidbody
     
+    [SerializeField] Transform castPos;
+    [SerializeField] float baseCastDist;  
+    [SerializeField] private float horizontalSpeed = 5f; // creamos variable serializada de la velocidad de movimiento
+    
+    string facingDirection;
+    Vector3 baseScale;
+
     void Start()
     {
-        rb = GetComponent<Transform>(); // asignamos el rigidbody a la variable
-        coll = GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
-        sprite = GetComponent<SpriteRenderer>(); // asignamos el sprite al variable
-        anim = GetComponent<Animator>(); // asignamos el animador a la variable
+        rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
+        facingDirection = RIGHT;
+        baseScale = transform.localScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(rb.position.x == maxX || rb.position.x == minX)
-        {
-            dirX *= -1; 
-        }
+        
 
-        if((rb.position.x < maxX) && (dirX > 0f))
-        {
-            rb.Translate(Vector2.right * horizontalSpeed * Time.deltaTime);
-        }
-        if((rb.position.x > minX) && (dirX < 0f))
-        {
-            rb.Translate(-Vector2.right * horizontalSpeed * Time.deltaTime);
-        }
-
-        //UpdateAnimationState();    // actualizamos el estado de animación 
     }
 
-    /*private void UpdateAnimationState() // cambio de estados de animación
+    private void FixedUpdate()
     {
-        MovementState state;
+        float vX = horizontalSpeed;
+        if(facingDirection == LEFT)
+        {
+            vX = -horizontalSpeed;  
+        } 
 
-        if (dirX > 0f) // si la dirección es positiva, nos movemos a la derecha
+        rb.velocity = new Vector2(vX, rb.velocity.y);
+
+        if(isHittingWall() || isNearEdge())
         {
-            state = MovementState.moving;
-            sprite.flipX = false;
+            if(facingDirection == LEFT)
+            {
+                changeFacingDirection(RIGHT);
+            }
+            else
+            {
+                changeFacingDirection(LEFT);
+            }
         }
-        else if (dirX < 0f) // si la dirección es negativa, nos movemos a la izquierda
+    }
+
+    private void changeFacingDirection(string newDirection)
+    {
+        Vector3 newScale = baseScale;
+        if(newDirection == LEFT)
         {
-            state = MovementState.moving;
-            sprite.flipX = true;
+            newScale.x = -baseScale.x;
         }
-        
-        anim.SetInteger("state", (int)state); // le pasamos la posición del estado al Animator
-    }*/
+        else
+        {
+            newScale.x = baseScale.x;
+        }
+
+        transform.localScale = newScale;
+        facingDirection = newDirection;
+    }
+
+    private bool isHittingWall()
+    {
+        bool val = false;
+
+        float castDist = baseCastDist;
+
+        // define distancia de cast para izq. y der.
+        if(facingDirection == LEFT)
+        {
+            castDist = -baseCastDist;
+        }
+        else
+        {
+            castDist = baseCastDist;
+        }
+
+        // determinar el destino según la distancia del cast
+        Vector3 targetPos = castPos.position;
+        targetPos.x += castDist;
+
+        Debug.DrawLine(castPos.position, targetPos, Color.blue);
+        // si el cast toca algo que esté en la capa de "suelo"
+        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            val = true; // está tocando suelo o pared
+        }
+        else
+        {
+            val = false; // no está tocando suelo o pared
+        }
+
+        return val;
+    }
+
+    private bool isNearEdge()
+    {
+        bool val = true;
+
+        float castDist = baseCastDist;
+
+        // determinar el destino según la distancia del cast
+        Vector3 targetPos = castPos.position;
+        targetPos.y -= castDist;
+
+        Debug.DrawLine(castPos.position, targetPos, Color.red);
+        // si el cast toca algo que esté en la capa de "suelo"
+        if(Physics2D.Linecast(castPos.position, targetPos, 1 << LayerMask.NameToLayer("Ground")))
+        {
+            val = false; // está tocando un hueco
+        }
+        else
+        {
+            val = true; // no está tocando hueco
+        }
+
+        return val;
+    }
+
 }
