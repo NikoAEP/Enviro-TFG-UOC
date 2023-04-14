@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    const string LEFT = "left";
+    const string RIGHT = "right";
+
     private Rigidbody2D rb; // creamos variable del Rigidbody
     private BoxCollider2D coll; // creamos variable del Colisionador
     private SpriteRenderer sprite; // creamos variable del sprite de animación
@@ -12,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround; // creamos variable serializada de la capa de Ground
     [SerializeField] private float jumpForce = 14f; // creamos variable serializada de la fuerza de salto
     [SerializeField] private float horizontalSpeed = 7f; // creamos variable serializada de la velocidad de movimiento
+    string facingDirection;
+    Vector3 baseScale; 
 
     private float dirX = 0f; // creamos variable de dirección en el eje x
 
@@ -25,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         coll = GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
         sprite = GetComponent<SpriteRenderer>(); // asignamos el sprite al variable
         anim = GetComponent<Animator>(); // asignamos el animador a la variable
+        facingDirection = RIGHT;
+        baseScale = transform.localScale;
         
     }
 
@@ -50,12 +57,12 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0f) // si la dirección es positiva, nos movemos a la derecha
         {
             state = MovementState.running;
-            sprite.flipX = false;
+            changeFacingDirection(RIGHT);
         }
         else if (dirX < 0f) // si la dirección es negativa, nos movemos a la izquierda
         {
             state = MovementState.running;
-            sprite.flipX = true;
+            changeFacingDirection(LEFT);
         }
         else // no se está moviendo en el eje x
         {
@@ -72,6 +79,22 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetInteger("state", (int)state); // le pasamos la posición del estado al Animator
+    }
+
+    private void changeFacingDirection(string newDirection)
+    {
+        Vector3 newScale = baseScale;
+        if(newDirection == LEFT)
+        {
+            newScale.x = -baseScale.x;
+        }
+        else
+        {
+            newScale.x = baseScale.x;
+        }
+
+        transform.localScale = newScale;
+        facingDirection = newDirection;
     }
 
     private bool OnGround() // revisamos si está tocando el suelo

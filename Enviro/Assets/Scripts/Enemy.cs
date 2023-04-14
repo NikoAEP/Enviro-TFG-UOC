@@ -22,23 +22,23 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player") && GameManager.instance.currentHealth > 0)
         {
-            GameManager.instance.TakeDamage(type.attackDamage);        
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            if (direction.y < 0.5f)
+            {
+                GameManager.instance.TakeDamage(type.attackDamage);   
+            }    
         }   
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void receiveDamage(int damage)
     {
-        if (collision.gameObject.CompareTag("Player") && currentHealth > 0)
-        {
-            currentHealth -= 5;
-            //anim.SetTrigger("hit");
-        }
+        currentHealth -= damage;
         if (currentHealth <= 0)
-        {
-            GameManager.instance.EnemyDestroyed(type.value);
-            anim.SetTrigger("death");
-            destroySFX.Play();
-        }
+            {
+                GameManager.instance.EnemyDestroyed(type.value);
+                destroySFX.Play();
+                anim.Play("Suraba_Death");            
+            }
     }
 
     private void Die()
