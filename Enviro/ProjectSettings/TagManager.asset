@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Collectible01
-  - Enemy_01
   - EnemySpawnPoint
   - CollectibleSpawnPoint
+  - Enemy
+  - Weak Point
+  - PlayerFeet
   layers:
   - Default
   - TransparentFX

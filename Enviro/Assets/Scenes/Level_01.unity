@@ -9646,10 +9646,10 @@ AudioSource:
   m_GameObject: {fileID: 868536699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a74a21b29656c164c8f664dcb14823d9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5df0180510637c54c8f46bfe9298a39d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 0
   Loop: 0
   Mute: 0
@@ -9882,7 +9882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTypes: {fileID: 11400000, guid: 931494775872f1944878ba8397b6c16f, type: 2}
-  spawnPoints:
+  totalSpawnPoints:
   - {fileID: 686667999}
   - {fileID: 923856826}
   - {fileID: 70600826}

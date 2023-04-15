@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public EnemyTypeList enemyTypes;
 
     // Define variables for position ranges
-    public List<Transform> spawnPoints;
+    public List<Transform> totalSpawnPoints;
 
     private void Start()
     {
@@ -23,17 +23,19 @@ public class EnemySpawner : MonoBehaviour
         int maxSpawnPoints;
         if(difficulty == enemyTypes.maxDifficulty)
         {
-            maxSpawnPoints = spawnPoints.Count;
+            maxSpawnPoints = totalSpawnPoints.Count;
         }
         else {
-            maxSpawnPoints = spawnPoints.Count - (enemyTypes.maxDifficulty - difficulty);
+            maxSpawnPoints = totalSpawnPoints.Count - (enemyTypes.maxDifficulty - difficulty);
         }
-        print(maxSpawnPoints);
+        print("Total SP: " + totalSpawnPoints.Count);
+        print("Max SP: " + maxSpawnPoints);
+        print("Current Dif.: " + difficulty);
 
         for (int i = 0; i < maxSpawnPoints; i++)
         {
-            int spawnIndex = Random.Range(0, spawnPoints.Count);
-            Transform spawnPoint = spawnPoints[spawnIndex];
+            int spawnIndex = Random.Range(0, totalSpawnPoints.Count);
+            Transform spawnPoint = totalSpawnPoints[spawnIndex];
 
             EnemyType enemyType = SelectEnemyType(difficulty);
             GameObject enemyObject = Instantiate(enemyType.prefab, spawnPoint.position, Quaternion.identity);
@@ -55,4 +57,5 @@ public class EnemySpawner : MonoBehaviour
         }
         return null;
     }
+
 }

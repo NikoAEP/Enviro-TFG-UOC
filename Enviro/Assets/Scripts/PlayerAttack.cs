@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision != null)
-        {
-            if(collision.gameObject.CompareTag("Enemy_01"))
+        if(collision.gameObject.tag == "Weak Point")
             {
-                var enemy = collision.gameObject.GetComponent<Enemy>();
+                print("Enemy weak point collided");
+                var enemy = collision.gameObject.GetComponent<EnemyHealth>();
                 enemy.receiveDamage(5);
+                print("enemy health: " + enemy.currentHealth);
             }
-        }
     }
 }

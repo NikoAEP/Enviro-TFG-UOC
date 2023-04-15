@@ -9,11 +9,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb; // creamos variable del Rigidbody
     private BoxCollider2D coll; // creamos variable del Colisionador
-    private SpriteRenderer sprite; // creamos variable del sprite de animación
     private Animator anim; // creamos variable animador
 
     [SerializeField] private LayerMask jumpableGround; // creamos variable serializada de la capa de Ground
+    [SerializeField] private Transform feetPosition; 
+    [SerializeField] private float groundCheckCircle; 
+    private bool isGrounded;
     [SerializeField] private float jumpForce = 14f; // creamos variable serializada de la fuerza de salto
+
     [SerializeField] private float horizontalSpeed = 7f; // creamos variable serializada de la velocidad de movimiento
     string facingDirection;
     Vector3 baseScale; 
@@ -27,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
-        coll = GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
-        sprite = GetComponent<SpriteRenderer>(); // asignamos el sprite al variable
+        coll = feetPosition.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
         anim = GetComponent<Animator>(); // asignamos el animador a la variable
         facingDirection = RIGHT;
         baseScale = transform.localScale;
@@ -38,16 +40,20 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, jumpableGround);
         dirX = Input.GetAxis("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
-        rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal
-
-        if (Input.GetButtonDown("Jump") && OnGround()) // si presionamos la tecla de salto y estamos en el suelo
+                       
+        if (Input.GetButtonDown("Jump") && isGrounded) // si presionamos la tecla de salto y estamos en el suelo
         {
             jumpSFX.Play();
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce); // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
-        }
+            rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
+        }  
+        UpdateAnimationState();    // actualizamos el estado de animación
+    }
 
-        UpdateAnimationState();    // actualizamos el estado de animación    
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
     }
 
     private void UpdateAnimationState() // cambio de estados de animación
@@ -95,11 +101,5 @@ public class PlayerMovement : MonoBehaviour
 
         transform.localScale = newScale;
         facingDirection = newDirection;
-    }
-
-    private bool OnGround() // revisamos si está tocando el suelo
-    {
-        // cogemos el centro del colisionador y revisamos si hay solapamiento con todo aquello que sea el "suelo"
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 }

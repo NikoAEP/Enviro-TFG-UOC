@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    public int difficulty = 2;
+    public int difficulty = 0;
+    public int maxDifficulty = 2;
     public int currentLevel = 1;
     public int maxLevel = 3;
 
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        difficulty = 2; // dificultad por defecto
+        difficulty = 0; // dificultad por defecto
         currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 
@@ -80,8 +81,16 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         overallScore += currentScore;
-        difficulty = (overallScore / 2); // Determine difficulty based on total score
-
+        
+        if((overallScore / 2) <= 10)
+        {
+            difficulty++;
+        }
+        if(difficulty >= maxDifficulty)
+        {
+            difficulty = maxDifficulty;
+        }
+    
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -96,7 +105,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         SceneManager.LoadScene("End_Screen");
-        difficulty = 1; // dificultad por defecto
+        difficulty = 0; // dificultad por defecto
         currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 

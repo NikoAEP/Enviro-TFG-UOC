@@ -23,12 +23,6 @@ public class EnemyMovement : MonoBehaviour
         baseScale = transform.localScale;
     }
 
-    void Update()
-    {
-        
-
-    }
-
     private void FixedUpdate()
     {
         float vX = horizontalSpeed;
