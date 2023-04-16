@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     
-    public int difficulty = 0;
+    public int difficulty;
     public int maxDifficulty = 2;
-    public int currentLevel = 1;
-    public int maxLevel = 3;
 
     public int maxHealth = 100; 
     public int currentHealth = 100;
@@ -19,8 +18,8 @@ public class GameManager : MonoBehaviour
     public int currentScore = 0;
     public int overallScore = 0;    
 
-    public Text healthText;
-    public Text scoreText;
+    public TMP_Text healthText;
+    public TMP_Text scoreText;
 
     private void Awake()
     {
@@ -37,12 +36,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        difficulty = 0; // dificultad por defecto
-        currentHealth = maxHealth;
-        currentScore = 0;
-        overallScore = 0; 
-        UpdateHealthUI();
-        UpdateScoreUI();
+        difficulty = 0;
+        ResetGame();
     }
     
     public void TakeDamage(int damage)
@@ -78,23 +73,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CalculateDifficulty()
+    {
+        print("Previous Difficulty: " + difficulty);
+        int newDifficulty = difficulty;
+        if(currentScore < 20)
+        {
+            newDifficulty++;
+        }
+        else if (currentScore >= 20 && currentScore < 30)
+        {
+            newDifficulty = difficulty;
+        }
+        else
+        {
+            newDifficulty--;
+        }
+
+        if(newDifficulty >= maxDifficulty)
+        {
+            newDifficulty = maxDifficulty;
+        }
+        if(newDifficulty <= 0)
+        {
+            newDifficulty = 0;
+        }
+        difficulty = newDifficulty;
+        print("New Difficulty: " + difficulty);
+    }
+
     public void LoadNextLevel()
     {
         overallScore += currentScore;
-        
-        if((overallScore / 2) <= 10)
-        {
-            difficulty++;
-        }
-        if(difficulty >= maxDifficulty)
-        {
-            difficulty = maxDifficulty;
-        }
-    
+        CalculateDifficulty();        
+   
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            StartCoroutine(LoadLevel((nextSceneIndex)));
         }
         else
         {
@@ -104,12 +120,22 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("End_Screen");
-        difficulty = 0; // dificultad por defecto
+        StartCoroutine(LoadLevel(3));
+        ResetGame();
+    }
+
+    public void ResetGame()
+    {
         currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 
         UpdateHealthUI();
         UpdateScoreUI();
+    }    
+
+    public IEnumerator LoadLevel(int levelIndex)
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(levelIndex);
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Weak Point
   - PlayerFeet
   - Collectible
+  - BG Music
   layers:
   - Default
   - TransparentFX
