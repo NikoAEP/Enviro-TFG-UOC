@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Weak Point
   - PlayerFeet
+  - Collectible
   layers:
   - Default
   - TransparentFX

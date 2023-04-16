@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8171073110929403629}
   - component: {fileID: 1914011674115008258}
   m_Layer: 0
-  m_Name: Collectible01
-  m_TagString: Collectible01
+  m_Name: Glass
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31b5e5fb73ae8446925b076fd5b92d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 75af2405b35f87742a75aa9a827d04cd, type: 2}
   collectSFX: {fileID: 1914011674115008258}
-  value: 5
 --- !u!82 &1914011674115008258
 AudioSource:
   m_ObjectHideFlags: 0

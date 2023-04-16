@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 2271558965450124874}
   - component: {fileID: 1491830347789681181}
   - component: {fileID: 645985647184508310}
+  - component: {fileID: 5536490607955835310}
   m_Layer: 0
   m_Name: StinkyChild
   m_TagString: Enemy
@@ -517,3 +518,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5536490607955835310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204568031214260857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3365a6f86984ee4ba60d67c15686fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 87df3e9e30482c64d9508ec9b7bbcc7b, type: 2}

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour
 {
     private Animator anim;
+    [SerializeField] private CollectibleType type;
     [SerializeField] private AudioSource collectSFX;
-    [SerializeField] private int value;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collectSFX.Play();
-            GameManager.instance.CollectibleCollected(value);
+            GameManager.instance.CollectibleCollected(type.value);
             anim.SetTrigger("collected");
         }
     }

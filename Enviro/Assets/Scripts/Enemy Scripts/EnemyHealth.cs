@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour
                 GameManager.instance.EnemyDestroyed(type.value);
                 destroySFX.Play();
                 anim.Play("Suraba_Death");
-                Die();            
+                Invoke("Die", 0.7f);            
             }
     }
 

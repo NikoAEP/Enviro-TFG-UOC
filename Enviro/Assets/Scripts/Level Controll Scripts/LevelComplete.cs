@@ -21,7 +21,6 @@ public class LevelComplete : MonoBehaviour
         {
             winSFX.Play();
             levelCompleted = true;
-            Invoke("CompleteLevel", 2f);
             GameManager.instance.currentLevel++;
             GameManager.instance.LoadNextLevel();
        }

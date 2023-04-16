@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 2271558965450124874}
   - component: {fileID: 1491830347789681181}
   - component: {fileID: 645985647184508310}
-  - component: {fileID: 1084097802694716146}
+  - component: {fileID: 4078168625227053058}
   m_Layer: 0
   m_Name: SwampyChild
   m_TagString: Enemy
@@ -518,7 +518,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1084097802694716146
+--- !u!114 &4078168625227053058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -527,9 +527,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8204568031214260857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50ec873c2a99c3549b726131678ab27c, type: 3}
+  m_Script: {fileID: 11500000, guid: d3365a6f86984ee4ba60d67c15686fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castPos: {fileID: 3545444643550475003}
-  baseCastDist: 0.5
-  horizontalSpeed: 1
+  type: {fileID: 11400000, guid: e6ef69c28c224da428b1920d36beeed0, type: 2}
