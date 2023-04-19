@@ -101,8 +101,7 @@ GameObject:
   - component: {fileID: 8366160739117122950}
   - component: {fileID: 8366160739117122949}
   - component: {fileID: 8366160739117122948}
-  - component: {fileID: 1476441246210902734}
-  - component: {fileID: 8366160739117122945}
+  - component: {fileID: 9075594903026379723}
   - component: {fileID: 4324937989949607451}
   - component: {fileID: 8366160739117122946}
   - component: {fileID: 8366160739117122947}
@@ -110,6 +109,7 @@ GameObject:
   - component: {fileID: 8366160739117123005}
   - component: {fileID: 8366160739117123006}
   - component: {fileID: 8366160739117122951}
+  - component: {fileID: 4815831975196953874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -208,12 +208,12 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1476441246210902734
-BoxCollider2D:
+--- !u!70 &9075594903026379723
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -244,35 +244,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.058626294, y: -0.2091881}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.88217807, y: 1.1797154}
-  m_EdgeRadius: 0
---- !u!114 &8366160739117122945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8366160739117122953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ec09e76318033428de693e7633ba36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 8366160739117122948}
-  destroySFX: {fileID: 8366160739117123006}
-  damageSFX: {fileID: 8366160739117123005}
-  dieSFX: {fileID: 8366160739117123004}
+  m_Offset: {x: 0.06043017, y: -0.16114712}
+  m_Size: {x: 1.1237628, y: 1.2849092}
+  m_Direction: 0
 --- !u!114 &4324937989949607451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,8 +262,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 64
-  feetPosition: {fileID: 852566577646753791}
-  groundCheckCircle: 0.5
+  feet: {fileID: 852566577646753791}
   jumpForce: 14
   horizontalSpeed: 7
   jumpSFX: {fileID: 8366160739117122946}
@@ -794,3 +767,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4815831975196953874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366160739117122953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af272fbba7d43e43b5abdbfce8ef33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthManager: {fileID: 5164864520838550047, guid: b65138789eeb5b142ac16e3c4bab3f8a, type: 3}
+  destroySFX: {fileID: 8366160739117123006}
+  damageSFX: {fileID: 8366160739117123005}
+  dieSFX: {fileID: 8366160739117123004}

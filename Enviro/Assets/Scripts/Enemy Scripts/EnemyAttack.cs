@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private EnemyType type;
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player" && GameManager.instance.currentHealth > 0)
+        if(collision.gameObject.tag == "Player")
         {
            print("Enemy hit player");
-           collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(type.attackDamage);    
+           collision.gameObject.GetComponent<PlayerBehavior>().PlayerTakeDamage(type.attackDamage);    
         }   
     }
 }

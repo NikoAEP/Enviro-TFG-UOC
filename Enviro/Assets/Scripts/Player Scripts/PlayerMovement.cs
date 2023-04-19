@@ -12,16 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim; // creamos variable animador
 
     [SerializeField] private LayerMask jumpableGround; // creamos variable serializada de la capa de Ground
-    [SerializeField] private Transform feetPosition; 
-    [SerializeField] private float groundCheckCircle; 
+    [SerializeField] private Transform feet; 
+    [SerializeField] private float jumpForce; // creamos variable serializada de la fuerza de salto
     private bool isGrounded;
-    [SerializeField] private float jumpForce = 14f; // creamos variable serializada de la fuerza de salto
 
-    [SerializeField] private float horizontalSpeed = 7f; // creamos variable serializada de la velocidad de movimiento
+    [SerializeField] private float horizontalSpeed; // creamos variable serializada de la velocidad de movimiento
+    private float dirX; // creamos variable de dirección en el eje x
     string facingDirection;
-    Vector3 baseScale; 
-
-    private float dirX = 0f; // creamos variable de dirección en el eje x
+    Vector3 baseScale;    
 
     private enum MovementState { idle, running, jumping, falling }; // listado de los diferentes estados
 
@@ -30,37 +28,40 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
-        coll = feetPosition.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
+        coll = feet.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
         anim = GetComponent<Animator>(); // asignamos el animador a la variable
         facingDirection = RIGHT;
         baseScale = transform.localScale;
-        
+        jumpForce = 20f;
+        horizontalSpeed = 7f;     
     }
 
     // Update is called once per frame
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, jumpableGround);
-        dirX = Input.GetAxis("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
-                       
-        if (Input.GetButtonDown("Jump") && isGrounded) // si presionamos la tecla de salto y estamos en el suelo
+        dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
+          
+        if (Input.GetButtonDown("Jump") && IsGrounded()) // si presionamos la tecla de salto y estamos en el suelo
         {
             jumpSFX.Play();
             rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
-        }  
+        } 
         UpdateAnimationState();    // actualizamos el estado de animación
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+        if(dirX > 0.1f || dirX < -0.1f)
+        {
+            rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+        }
     }
 
     private void UpdateAnimationState() // cambio de estados de animación
     {
         MovementState state;
 
-        if (dirX > 0f) // si la dirección es positiva, nos movemos a la derecha
+        if (dirX > 0.1f) // si la dirección es positiva, nos movemos a la derecha
         {
             state = MovementState.running;
             changeFacingDirection(RIGHT);
@@ -101,5 +102,10 @@ public class PlayerMovement : MonoBehaviour
 
         transform.localScale = newScale;
         facingDirection = newDirection;
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
     }
 }

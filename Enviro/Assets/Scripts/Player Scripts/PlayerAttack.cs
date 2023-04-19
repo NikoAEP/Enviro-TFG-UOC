@@ -12,7 +12,6 @@ public class PlayerAttack : MonoBehaviour
                 print("Enemy weak point collided");
                 var enemy = collision.gameObject.GetComponent<EnemyHealth>();
                 enemy.receiveDamage(5);
-                print("enemy health: " + enemy.currentHealth);
             }
     }
 }

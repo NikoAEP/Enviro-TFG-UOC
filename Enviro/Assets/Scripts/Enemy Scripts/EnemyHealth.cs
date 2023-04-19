@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private AudioSource dieSFX;
 
     private int maxHealth;
-    public int currentHealth;
+    private int currentHealth;
     
     private void Start()
     {
@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
     public void receiveDamage(int damage)
     {
         currentHealth -= damage;
+        print("enemy health: " + currentHealth);
         if (currentHealth <= 0)
             {
                 GameManager.instance.EnemyDestroyed(type.value);

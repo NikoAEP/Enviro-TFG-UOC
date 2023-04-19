@@ -7,30 +7,33 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager instance { get; private set; }
     
+    public bool gameOver = false;
     public int difficulty;
     public int maxDifficulty = 2;
 
-    public int maxHealth = 100; 
-    public int currentHealth = 100;
+    public UnitHealth _playerHealth = new UnitHealth(100, 100);
+    
+    //public int maxHealth = 100; 
+    //public int currentHealth = 100;
     
     public int currentScore = 0;
     public int overallScore = 0;    
 
-    public TMP_Text healthText;
+    //public TMP_Text healthText;
     public TMP_Text scoreText;
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance != null && instance != this)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(this);
         }
         else
-        {
-            Destroy(gameObject);
+        {   
+            instance = this;
+            DontDestroyOnLoad(this);
         }        
     }
 
@@ -40,11 +43,11 @@ public class GameManager : MonoBehaviour
         ResetGame();
     }
     
-    public void TakeDamage(int damage)
+    /*public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         UpdateHealthUI();
-    }
+    }*/
     
     public void EnemyDestroyed(int points)
     {
@@ -57,13 +60,13 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
     }
 
-    private void UpdateHealthUI()
+    /*private void UpdateHealthUI()
     {
         if (healthText != null)
         {
-            healthText.text = "Health: " + currentHealth;
+            healthText.text = "Health: " + _playerHealth.Health;
         }
-    }
+    }*/
 
     private void UpdateScoreUI()
     {
@@ -120,16 +123,18 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        gameOver = true;
         StartCoroutine(LoadLevel(3));
         ResetGame();
     }
 
     public void ResetGame()
     {
-        currentHealth = maxHealth;
+        gameOver = false;
+        //currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 
-        UpdateHealthUI();
+        //UpdateHealthUI();
         UpdateScoreUI();
     }    
 
