@@ -228,13 +228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12a1f2cb89a46441b9553636a01f6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
   difficulty: 3
   maxDifficulty: 2
-  maxHealth: 100
-  currentHealth: 100
   currentScore: 0
   overallScore: 0
-  healthText: {fileID: 1378483764}
   scoreText: {fileID: 703528675}
 --- !u!4 &87698551
 Transform:
