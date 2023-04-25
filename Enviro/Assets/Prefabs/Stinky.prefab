@@ -140,7 +140,6 @@ MonoBehaviour:
   type: {fileID: 11400000, guid: 87df3e9e30482c64d9508ec9b7bbcc7b, type: 2}
   destroySFX: {fileID: 2272042616067832897}
   dieSFX: {fileID: 8280013931992792462}
-  currentHealth: 0
 --- !u!82 &2272042616067832897
 AudioSource:
   m_ObjectHideFlags: 0
@@ -438,8 +437,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1805137859
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1747297401, guid: 52326e58a4327ac47b820fb6b9dc1d73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -484,7 +483,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0030146241, y: -0.5614645}
+  m_Offset: {x: 0.0030146241, y: -0.68494296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -495,7 +494,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5180782, y: 0.8913294}
+  m_Size: {x: 1.5180782, y: 0.6443724}
   m_EdgeRadius: 0
 --- !u!95 &645985647184508310
 Animator:

@@ -9,12 +9,10 @@ public class CollectibleController : MonoBehaviour
     [SerializeField] private CollectibleType type;
     [SerializeField] private AudioSource collectSFX;
 
-    private ScoreManager scoreManager;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        scoreManager = GameObject.Find("UICanvas").GetComponent<ScoreManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,9 +20,9 @@ public class CollectibleController : MonoBehaviour
         if (collision.tag == "Player")
         {
             collectSFX.Play();
-            scoreManager.score += type.value;
-            //GameManager.instance.CollectibleCollected(type.value);
-            anim.SetTrigger("collected");
+            GameManager.instance.CollectibleCollected(type.value);
+            anim.Play("Recyclos_Disappear");
+            Invoke("Disappear", 0.6f);
         }
     }
 

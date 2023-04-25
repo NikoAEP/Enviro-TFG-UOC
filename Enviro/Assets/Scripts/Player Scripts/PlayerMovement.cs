@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         horizontalSpeed = 7f;     
     }
 
-    // Update is called once per frame
     private void Update()
     {
         dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada

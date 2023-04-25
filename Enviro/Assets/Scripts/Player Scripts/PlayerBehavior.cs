@@ -7,8 +7,7 @@ public class PlayerBehavior : MonoBehaviour
     Animator anim;
     Rigidbody2D rb;
 
-    [SerializeField] private HealthManager _healthManager;
-    [SerializeField] private ScoreManager _scoreManager;   
+    [SerializeField] private HealthManager _healthManager; 
     [SerializeField] private AudioSource destroySFX;
     [SerializeField] private AudioSource damageSFX;
     [SerializeField] private AudioSource dieSFX;
@@ -17,11 +16,6 @@ public class PlayerBehavior : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    void Update()
-    {
-        
     }
 
     public void PlayerTakeDamage (int damage)

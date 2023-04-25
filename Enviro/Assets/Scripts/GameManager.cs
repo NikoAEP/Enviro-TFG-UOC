@@ -13,16 +13,10 @@ public class GameManager : MonoBehaviour
     public int difficulty;
     public int maxDifficulty = 2;
 
-    public UnitHealth _playerHealth = new UnitHealth(100, 100);
-    
-    //public int maxHealth = 100; 
-    //public int currentHealth = 100;
+    public UnitHealth _playerHealth = new UnitHealth(100, 100);  
     
     public int currentScore = 0;
     public int overallScore = 0;    
-
-    //public TMP_Text healthText;
-    public TMP_Text scoreText;
 
     private void Awake()
     {
@@ -42,38 +36,16 @@ public class GameManager : MonoBehaviour
         difficulty = 0;
         ResetGame();
     }
-    
-    /*public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        UpdateHealthUI();
-    }*/
-    
+        
     public void EnemyDestroyed(int points)
     {
         currentScore += points;
-        UpdateScoreUI();
+        ScoreManager.instance.UpdateScore(currentScore);
     }
     public void CollectibleCollected(int points)
     {
         currentScore += points;
-        UpdateScoreUI();
-    }
-
-    /*private void UpdateHealthUI()
-    {
-        if (healthText != null)
-        {
-            healthText.text = "Health: " + _playerHealth.Health;
-        }
-    }*/
-
-    private void UpdateScoreUI()
-    {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + currentScore;
-        }
+        ScoreManager.instance.UpdateScore(currentScore);
     }
 
     public void CalculateDifficulty()
@@ -131,11 +103,8 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         gameOver = false;
-        //currentHealth = maxHealth;
         currentScore = 0;
         overallScore = 0; 
-        //UpdateHealthUI();
-        UpdateScoreUI();
     }    
 
     public IEnumerator LoadLevel(int levelIndex)

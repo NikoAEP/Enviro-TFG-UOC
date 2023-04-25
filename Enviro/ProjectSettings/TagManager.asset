@@ -11,6 +11,7 @@ TagManager:
   - PlayerFeet
   - Collectible
   - BG Music
+  - Platform
   layers:
   - Default
   - TransparentFX
