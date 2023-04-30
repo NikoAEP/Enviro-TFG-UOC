@@ -10,7 +10,6 @@ public class PollutionUI : MonoBehaviour
     void Start()
     {
         currentDifficulty = GameManager.instance.difficulty;
-        print("The current difficulty is " + currentDifficulty);
     }
 
     void Update()
@@ -28,7 +27,6 @@ public class PollutionUI : MonoBehaviour
 
     bool DisplayPollutionLevel(int difficulty, int pollution)
     {
-        print("The current pollution is less than or equal to the current difficulty:" + (pollution <= difficulty));
         return (pollution <= difficulty);
     }
 }

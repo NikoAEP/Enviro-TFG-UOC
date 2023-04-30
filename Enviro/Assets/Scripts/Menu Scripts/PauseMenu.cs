@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Time.timeScale = 1f; // se reanuda el tiempo
-        SceneManager.LoadSceneAsync("Main Menu"); // se carga la escena del menú
+        SceneManager.LoadSceneAsync("Menu"); // se carga la escena del menú
         isPaused = false; // ya no está pausado
     }
 

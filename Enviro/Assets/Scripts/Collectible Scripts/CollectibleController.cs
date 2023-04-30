@@ -22,7 +22,7 @@ public class CollectibleController : MonoBehaviour
             collectSFX.Play();
             GameManager.instance.CollectibleCollected(type.value);
             anim.Play("Recyclos_Disappear");
-            Invoke("Disappear", 0.6f);
+            Invoke("Disappear", 0.5f);
         }
     }
 

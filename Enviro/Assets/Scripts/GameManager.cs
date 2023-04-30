@@ -82,10 +82,19 @@ public class GameManager : MonoBehaviour
         overallScore += currentScore;
         CalculateDifficulty();        
    
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = 1;
+        if(currentSceneIndex > 0 && currentSceneIndex <= 3)
         {
-            StartCoroutine(LoadLevel((nextSceneIndex)));
+            nextSceneIndex = 2;
+        }
+        if(currentSceneIndex > 3 && currentSceneIndex <= 6)
+        {
+            nextSceneIndex = 3;
+        }
+        if (currentSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            StartCoroutine(LoadLevel(nextSceneIndex, difficulty));
         }
         else
         {
@@ -96,7 +105,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        StartCoroutine(LoadLevel(3));
+        SceneManager.LoadScene("Game_Over");
         ResetGame();
     }
 
@@ -107,9 +116,9 @@ public class GameManager : MonoBehaviour
         overallScore = 0; 
     }    
 
-    public IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadLevel(int levelIndex, int diffLevel)
     {
         yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene("Level_"+ levelIndex + "_" + diffLevel);
     }
 }

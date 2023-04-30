@@ -22,13 +22,14 @@ public class EnemyHealth : MonoBehaviour
     public void receiveDamage(int damage)
     {
         currentHealth -= damage;
+        anim.Play("Suraba_Hit");
         print("enemy health: " + currentHealth);
         if (currentHealth <= 0)
             {
                 GameManager.instance.EnemyDestroyed(type.value);
                 destroySFX.Play();
                 anim.Play("Suraba_Death");
-                Invoke("Die", 0.7f);            
+                Invoke("Die", 0.6f);            
             }
     }
 

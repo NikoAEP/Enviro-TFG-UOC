@@ -13,13 +13,13 @@ public class StartGame : MonoBehaviour
     {
         GameManager.instance.ResetGame(); // primero se resetea el juego 
         transitionContainer.SetActive(true); // se activa el panel de animación de transición
-        StartCoroutine(LoadLevel(1)); // se carga el primer nivel 
+        StartCoroutine(LoadLevel(GameManager.instance.difficulty)); // se carga el primer nivel 
     }
 
-    IEnumerator LoadLevel(int levelIndex) // Carga el nivel con delay suficiente para realizar la transición 
+    IEnumerator LoadLevel(int diffLevel) // Carga el nivel con delay suficiente para realizar la transición 
     {
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene("Level_1_" + diffLevel);
     }
 }
