@@ -12,18 +12,22 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim; // creamos variable animador
 
     [SerializeField] private LayerMask jumpableGround; // creamos variable serializada de la capa de Ground
-    [SerializeField] private Transform feet; 
+    [SerializeField] private Transform feet; // el transform de los pies del jugador
     [SerializeField] private float jumpForce; // creamos variable serializada de la fuerza de salto
-    private bool isGrounded;
+    public float KBForce; // fuerza de knockback
+    public float KBCounter; // contador de knockback
+    public float KBTotalTime; // duración total del knockback
+    public bool knockFromRight; // si recibe el knockback de la derecha o no
+    private bool isGrounded; // si está en el suelo o no
 
     [SerializeField] private float horizontalSpeed; // creamos variable serializada de la velocidad de movimiento
     private float dirX; // creamos variable de dirección en el eje x
-    string facingDirection;
-    Vector3 baseScale;    
+    string facingDirection; // dirección a la que se está mirando
+    Vector3 baseScale; // escala base
 
     private enum MovementState { idle, running, jumping, falling }; // listado de los diferentes estados
 
-    [SerializeField] private AudioSource jumpSFX;
+    [SerializeField] private AudioSource jumpSFX; // el sonido de salto
 
     private void Start()
     {
@@ -33,7 +37,9 @@ public class PlayerMovement : MonoBehaviour
         facingDirection = RIGHT;
         baseScale = transform.localScale;
         jumpForce = 20f;
-        horizontalSpeed = 7f;     
+        horizontalSpeed = 7f;
+        KBForce = 5f;
+        KBTotalTime = 0.2f;  
     }
 
     private void Update()
@@ -45,14 +51,30 @@ public class PlayerMovement : MonoBehaviour
             jumpSFX.Play();
             rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
         } 
-        UpdateAnimationState();    // actualizamos el estado de animación
+        UpdateAnimationState(); // actualizamos el estado de animación
     }
 
     private void FixedUpdate()
     {
-        if(dirX > 0.1f || dirX < -0.1f)
+        if(KBCounter <= 0) // mientras no haya knockback aplicado
         {
-            rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+            if(dirX > 0.1f || dirX < -0.1f)
+            {
+                rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+            }
+        }
+        else
+        {
+            if(knockFromRight == true)
+            {
+                rb.velocity = new Vector2(-KBForce, KBForce); // se aplica la fuerza de knockback en negativo
+            }
+            if(knockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce); // se aplica la fuerza de knockback en positivo
+            }
+
+            KBCounter -= Time.deltaTime; // se descuenta el contador 
         }
     }
 
@@ -87,24 +109,24 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state); // le pasamos la posición del estado al Animator
     }
 
-    private void changeFacingDirection(string newDirection)
+    private void changeFacingDirection(string newDirection) // se cambia de dirección 
     {
-        Vector3 newScale = baseScale;
-        if(newDirection == LEFT)
+        Vector3 newScale = baseScale; // se usa una variable temporal para cambiar la escala del jugador
+        if(newDirection == LEFT) // si la dirección es izquierda
         {
-            newScale.x = -baseScale.x;
+            newScale.x = -baseScale.x; // la escala en x se hace negativa
         }
         else
         {
-            newScale.x = baseScale.x;
+            newScale.x = baseScale.x; // si no, la escala en x se hace positiva
         }
 
-        transform.localScale = newScale;
-        facingDirection = newDirection;
+        transform.localScale = newScale; // la escala local es la nueva escala
+        facingDirection = newDirection; // la dirección en la que se está moviendo es la nueva dirección
     }
 
-    private bool IsGrounded()
+    private bool IsGrounded() // mira si está tocando suelo
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround); // se hace un boxcast del colisionador del jugador sobre todo lo que esté marcado como "jumpableGround"
     }
 }
