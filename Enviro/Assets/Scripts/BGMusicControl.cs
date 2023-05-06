@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class BGMusicControl : MonoBehaviour
 {
+    public static BGMusicControl instance;
     private void Awake()
     {
-        GameObject[] musicObj = GameObject.FindGameObjectsWithTag("BG Music");
-        if(musicObj.Length > 1)
+        if(instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }        
     }
 }

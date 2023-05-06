@@ -13,19 +13,28 @@ EditorBuildSettings:
     guid: 25d175ceb2328c54cb404796ec1947d8
   - enabled: 1
     path: Assets/Scenes/Level_1_1.unity
-    guid: 7c9c1563c4ad8c1488d776c979232579
+    guid: 86ee72086d652cb44a70d48f4d177d05
   - enabled: 1
     path: Assets/Scenes/Level_1_2.unity
-    guid: 5d6479fde5b4d67449fc1937d2bb3cea
+    guid: 3788b9361c84a014f96b2ec40f6ec1b0
   - enabled: 1
     path: Assets/Scenes/Level_2_0.unity
     guid: 724aa315d63c8a14b81fcc824d823bec
   - enabled: 1
     path: Assets/Scenes/Level_2_1.unity
-    guid: f0081c4636456064ca851ef934c66f78
+    guid: 62bacc7e3559e324a96cdae53d8b3591
   - enabled: 1
     path: Assets/Scenes/Level_2_2.unity
-    guid: bc77b236483832342bdd5b62a8a459f9
+    guid: 4d10e393b240b1240b4bb8b80f51c859
+  - enabled: 1
+    path: Assets/Scenes/Level_3_0.unity
+    guid: b719af7bef1020745ab5ded42358b26c
+  - enabled: 1
+    path: Assets/Scenes/Level_3_1.unity
+    guid: 8091e0072b6e5bf41aa3c422c4ac2468
+  - enabled: 1
+    path: Assets/Scenes/Level_3_2.unity
+    guid: 2d1f7f28d11a27045a73017f3733f2fe
   - enabled: 1
     path: Assets/Scenes/Game_Over.unity
     guid: 39eac5734ff34934f9706f0bdd95879c
