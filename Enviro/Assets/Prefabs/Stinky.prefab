@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castPos: {fileID: 3545444643550475003}
-  baseCastDist: 0.5
+  baseCastDist: 0.6
   horizontalSpeed: 2
   isBeingHit: 0
 --- !u!114 &4110542617107112603
