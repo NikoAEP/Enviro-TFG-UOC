@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     
     public bool gameOver = false;
+    public bool gamePaused = true;
     public int difficulty;
     public int maxDifficulty = 2;
 
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour
 
     public void CalculateDifficulty()
     {
-        print("Previous Difficulty: " + difficulty);
         int newDifficulty = difficulty;
         if(currentScore < 20)
         {
@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
             newDifficulty = 0;
         }
         difficulty = newDifficulty;
-        print("New Difficulty: " + difficulty);
     }
 
     public void LoadNextLevel()
@@ -105,6 +104,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
+        gamePaused = true;
         SceneManager.LoadScene("Game_Over");
         ResetGame();
     }

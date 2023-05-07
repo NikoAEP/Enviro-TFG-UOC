@@ -19,12 +19,12 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = GameManager.instance.currentScore;
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
     }
 
     public void UpdateScore(int value)
     {
-        scoreText.text = "Score: " + value.ToString();
+        scoreText.text = value.ToString();
         print("Current score: " + value);
     }
 }
