@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false); // por defecto se desactiva el menú de pausa
+        isPaused = true;
     }
 
     void Update()
@@ -40,18 +41,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false); // se desactiva el panel de pausa
         Time.timeScale = 1f; // se reanuda el tiempo
         isPaused = false; // ya no está pausado
-    }
-
-    public void GoToMainMenu()
-    {
-        Time.timeScale = 1f; // se reanuda el tiempo
-        SceneManager.LoadSceneAsync("Menu"); // se carga la escena del menú
-        isPaused = false; // ya no está pausado
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }
 

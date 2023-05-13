@@ -19,5 +19,6 @@ public class InstructionPopUp : MonoBehaviour
     {
         tutorialContainer.SetActive(false); // se desactiva el panel de pausa
         Time.timeScale = 1f; // se reanuda el tiempo
+        PauseMenu.isPaused = false;
     }
 }

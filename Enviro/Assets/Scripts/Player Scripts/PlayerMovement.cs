@@ -44,14 +44,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
-          
-        if (Input.GetButtonDown("Jump") && IsGrounded()) // si presionamos la tecla de salto y estamos en el suelo
+        if (!PauseMenu.isPaused)
         {
-            jumpSFX.Play();
-            rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
-        } 
-        UpdateAnimationState(); // actualizamos el estado de animación
+            dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
+
+            if (Input.GetButtonDown("Jump") && IsGrounded()) // si presionamos la tecla de salto y estamos en el suelo
+            {
+                jumpSFX.Play();
+                rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
+            }
+            UpdateAnimationState(); // actualizamos el estado de animación
+        }
     }
 
     private void FixedUpdate()
