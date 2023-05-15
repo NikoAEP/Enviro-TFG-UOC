@@ -11,7 +11,16 @@ public class LevelComplete : MonoBehaviour
     {
         if(collision.gameObject.name == "Player") // cuando el objeto con nombre "Player" entra en el colisionador
         {
-            GameManager.instance.LoadNextLevel(); // se le dice al GM que cargue el siguiente nivel
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if(currentSceneIndex < 7)
+            {
+                GameManager.instance.LoadNextLevel(); // se le dice al GM que cargue el siguiente nivel
+            }
+            else
+            {
+                GameManager.instance.GameOver();
+            }
+            
        }        
     }
 }

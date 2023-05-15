@@ -74,6 +74,22 @@ MonoBehaviour:
     m_Localized: Idioma
     m_Metadata:
       m_Items: []
+  - m_Id: 2934750380548096
+    m_Localized: "Men\xFA"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942645881004032
+    m_Localized: "\xA1Has limpiado el mundo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942721315561472
+    m_Localized: "T\xFA has sobrevivido, pero el mundo no."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942903449018368
+    m_Localized: "La contaminaci\xF3n pudo contigo."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

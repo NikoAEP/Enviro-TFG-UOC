@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false); // por defecto se desactiva el menú de pausa
-        isPaused = true;
     }
 
     void Update()

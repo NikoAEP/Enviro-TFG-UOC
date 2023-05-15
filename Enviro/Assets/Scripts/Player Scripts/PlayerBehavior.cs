@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
@@ -18,6 +19,11 @@ public class PlayerBehavior : MonoBehaviour
     {
         anim = GetComponent<Animator>(); // se coge el componente del animador
         rb = GetComponent<Rigidbody2D>(); // se coge el rigid body del jugador
+        _healthManager.SetHealth(GameManager.instance._playerHealth.Health); // se actualiza la vida a la vida actual del jugador
+    }
+    void Update()
+    {
+       _healthManager.SetHealth(GameManager.instance._playerHealth.Health); // se actualiza la vida a la vida actual del jugador
     }
 
     public void PlayerTakeDamage (int damage) // El jugador recibe daño
@@ -26,7 +32,7 @@ public class PlayerBehavior : MonoBehaviour
         damageSFX.Play(); // se inicia el sonido de daño
         GameManager.instance._playerHealth.TakeDamage(damage); // se avisa al Game Manager que el jugador ha sido dañado
         _healthManager.SetHealth(GameManager.instance._playerHealth.Health); // se actualiza la vida a la vida actual del jugador
-        print("Player Health: " + GameManager.instance._playerHealth.Health);
+        print("Player health: " + GameManager.instance._playerHealth.Health);
 
         if(GameManager.instance._playerHealth.Health <= 0) // si la vida del jugador es 0 o menos
         {

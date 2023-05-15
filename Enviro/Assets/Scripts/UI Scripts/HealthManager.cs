@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     Slider _healthSlider;
+    public static HealthManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

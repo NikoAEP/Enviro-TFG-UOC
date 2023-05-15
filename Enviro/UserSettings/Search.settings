@@ -11,9 +11,9 @@ scopes = {
 	"last_search.DE949528" = "palett"
 	"OpenInspectorPreview.DE949528" = "0"
 	"currentGroup.DE949528" = "menu"
-	"picker_window_position_offset.45F317DD" = "200;756;320;550"
-	"picker_search_text.45F317DD" = "st: opt"
-	"last_search.45F317DD" = "st: opt"
+	"picker_window_position_offset.45F317DD" = "196;756;320;550"
+	"picker_search_text.45F317DD" = "st: sc"
+	"last_search.45F317DD" = "st: sc"
 	"OpenInspectorPreview.45F317DD" = "0"
 	"currentGroup.45F317DD" = "all"
 }

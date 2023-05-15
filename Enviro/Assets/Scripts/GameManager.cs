@@ -8,16 +8,18 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
-    
+
     public bool gameOver = false;
     public bool gamePaused = true;
     public int difficulty;
     public int maxDifficulty = 2;
 
-    public UnitHealth _playerHealth = new UnitHealth(100, 100);  
-    
+    public UnitHealth _playerHealth = new UnitHealth(100, 100);
+
     public int currentScore = 0;
-    public int overallScore = 0;    
+    public int overallScore = 0;
+
+    public int cleanLevels = 0;
 
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            cleanLevels += 1;
             newDifficulty--;
         }
 
@@ -79,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel()
     {
         overallScore += currentScore;
+        print("Overall Score: " + overallScore);
         CalculateDifficulty();        
    
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You've reached the end of the game!");
+            GameOver();
         }
     }
 
@@ -118,7 +122,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator LoadLevel(int levelIndex, int diffLevel)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene("Level_"+ levelIndex + "_" + diffLevel);
     }
 }
