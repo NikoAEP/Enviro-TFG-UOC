@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: InstructionTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 342343638c3761942920998e445261bf, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 26674716672
+    m_Localized: Instrucciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 102100885504
+    m_Localized: "Colecciona Recyclos para obtener puntos.\n\nEvita las Surabas o
+      destr\xFAyelas para obtener puntos.\n\nCuantos m\xE1s puntos consigas, m\xE1s
+      limpio quedar\xE1 el mundo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 495862145024
+    m_Localized: 'Usa <- y -> (o a y d ) para moverte a la izquierda y derecha.
+
+      Usa
+      espacio (o w ) para saltar.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

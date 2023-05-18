@@ -90,6 +90,14 @@ MonoBehaviour:
     m_Localized: "La contaminaci\xF3n pudo contigo."
     m_Metadata:
       m_Items: []
+  - m_Id: 4051567735988224
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4051741178847232
+    m_Localized: Pausado
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

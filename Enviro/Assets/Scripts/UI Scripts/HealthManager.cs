@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    Slider _healthSlider;
-    public static HealthManager instance;
+    public Slider _healthSlider;
+    //public static HealthManager instance;
 
-    private void Awake()
+    /*private void Awake()
     {
         instance = this;
-    }
+    }*/
 
     void Start()
     {
-        _healthSlider = GetComponent<Slider>();
+        //_healthSlider = GetComponent<Slider>();
     }
 
     public void SetMaxHealth(int maxHealth)

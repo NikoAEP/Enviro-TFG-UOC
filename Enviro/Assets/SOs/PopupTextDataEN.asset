@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e31e99554e8b9c74fba79d09ffb36199, type: 3}
-  m_Name: PopupTextData
+  m_Name: PopupTextDataEN
   m_EditorClassIdentifier: 
   popupTexts:
   - 'Pack your lunch in a lunchbox. '
@@ -19,5 +19,5 @@ MonoBehaviour:
     bottle.
   - "Watch what you buy. When you\u2019re in the supermarket, pay attention to the
     packaging. "
-  - Clean out your closet.
+  - Clean out your closet. Reuse or donate old clothes.
   - Find a new use for an old item.
