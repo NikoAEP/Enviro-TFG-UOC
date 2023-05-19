@@ -18,7 +18,7 @@ public class LevelComplete : MonoBehaviour
             }
             else
             {
-                GameManager.instance.GameOver();
+                GameManager.instance.GameOver(); // si es el último nivel, se llama al método de GameOver
             }
             
        }        

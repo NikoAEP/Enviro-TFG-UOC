@@ -35,10 +35,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 495862145024
-    m_Localized: 'Use <- and -> (or a and d ) to move left and right.
-
-      Use
-      space (or  w ) to jump'
+    m_Localized: Use these keys to move left and right.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346145023844352
+    m_Localized: Use these keys to jump.
     m_Metadata:
       m_Items: []
   references:

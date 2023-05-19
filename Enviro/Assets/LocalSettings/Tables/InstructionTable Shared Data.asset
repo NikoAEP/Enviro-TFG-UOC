@@ -24,7 +24,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 495862145024
-    m_Key: Movement Instructions
+    m_Key: Horizontal Movement Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346145023844352
+    m_Key: Jump Instructions
     m_Metadata:
       m_Items: []
   m_Metadata:

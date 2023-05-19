@@ -7,16 +7,16 @@ using TMPro;
 public class GameOverControl : MonoBehaviour
 {
 
-    public GameObject wonText;
-    public GameObject lostText;
-    public GameObject diedText;
-    public TMP_Text scoreText;
-    private int score;
+    public GameObject wonText; // texto en caso de ganar
+    public GameObject lostText; // texto en caso de perder
+    public GameObject diedText; // texto en caso de muerte
+    public TMP_Text scoreText; // texto de puntuación
+    private int score; // puntuación
         
     void Start()
     {
-        score = GameManager.instance.overallScore;
-        scoreText.text = score.ToString();      
+        score = GameManager.instance.overallScore; // la puntuación es el valor de la puntuación total
+        scoreText.text = score.ToString(); // el texto es el valor pasado a texto
     }
 
     void Update()

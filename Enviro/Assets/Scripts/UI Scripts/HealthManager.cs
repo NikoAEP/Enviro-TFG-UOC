@@ -6,25 +6,14 @@ using UnityEngine.UI;
 public class HealthManager : MonoBehaviour
 {
     public Slider _healthSlider;
-    //public static HealthManager instance;
-
-    /*private void Awake()
-    {
-        instance = this;
-    }*/
-
-    void Start()
-    {
-        //_healthSlider = GetComponent<Slider>();
-    }
-
-    public void SetMaxHealth(int maxHealth)
+    
+    public void SetMaxHealth(int maxHealth) // Setea vida máxima
     {
         _healthSlider.maxValue = maxHealth;
         _healthSlider.value = maxHealth;
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(int health) // se cambia la vida actual
     {
         _healthSlider.value = health;
     }

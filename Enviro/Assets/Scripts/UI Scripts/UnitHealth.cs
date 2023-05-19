@@ -5,19 +5,19 @@ using UnityEngine;
 public class UnitHealth
 {
     // Campos
-    int _currentHealth;
-    int _currentMaxHealth;
+    int _currentHealth; // vida actual
+    int _currentMaxHealth; // vida máxima
     
     // Propiedades
     public int Health
     {
         get
         {
-            return _currentHealth;
+            return _currentHealth; // retorna la vida actual
         } 
         set
         {
-            _currentHealth = value;
+            _currentHealth = value; // se setea la vida actual
         }
     }
 
@@ -25,11 +25,11 @@ public class UnitHealth
     {
         get
         {
-            return _currentMaxHealth;
+            return _currentMaxHealth; // retorna la vida máxima
         } 
         set
         {
-            _currentMaxHealth = value;
+            _currentMaxHealth = value; // se setea la vida máxima
         }
     }
 
@@ -41,7 +41,7 @@ public class UnitHealth
     }
 
     // Métodos
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount) // reciba daño
     {
         if(_currentHealth > 0)
         {

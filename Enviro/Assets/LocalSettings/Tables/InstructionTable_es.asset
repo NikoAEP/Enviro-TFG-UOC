@@ -29,10 +29,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 495862145024
-    m_Localized: 'Usa <- y -> (o a y d ) para moverte a la izquierda y derecha.
-
-      Usa
-      espacio (o w ) para saltar.'
+    m_Localized: Usa estas teclas para moverte de izquierda a derecha.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346145023844352
+    m_Localized: Usa estas teclas para saltar.
     m_Metadata:
       m_Items: []
   references:

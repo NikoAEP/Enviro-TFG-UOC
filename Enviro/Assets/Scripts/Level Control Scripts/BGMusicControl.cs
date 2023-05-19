@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BGMusicControl : MonoBehaviour
 {
-    public static BGMusicControl instance;
+    public static BGMusicControl instance; // se crea una instancia de la música de fondo
     private void Awake()
     {
-        if(instance != null)
+        if(instance != null) // si no es nula, es decir que ya hay otra instancia
         {
-            Destroy(gameObject);
+            Destroy(gameObject); // se elimina
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            instance = this; // si no, esta es la instancia
+            DontDestroyOnLoad(this.gameObject); // se indica de no destruir
         }        
     }
 }

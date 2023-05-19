@@ -34,17 +34,17 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
         coll = feet.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
         anim = GetComponent<Animator>(); // asignamos el animador a la variable
-        facingDirection = RIGHT;
-        baseScale = transform.localScale;
-        jumpForce = 20f;
-        horizontalSpeed = 7f;
-        KBForce = 5f;
-        KBTotalTime = 0.2f;  
+        facingDirection = RIGHT; // se inicializa mirando a la derecha
+        baseScale = transform.localScale; // escala base es la local
+        jumpForce = 20f; // fuerza de salto
+        horizontalSpeed = 7f; // velocidad horizontal
+        KBForce = 5f; // fuerza de knockback
+        KBTotalTime = 0.2f; // tiempo de knockback
     }
 
     private void Update()
     {
-        if (!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused) // si no está pausado se habilita el input
         {
             dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
 
