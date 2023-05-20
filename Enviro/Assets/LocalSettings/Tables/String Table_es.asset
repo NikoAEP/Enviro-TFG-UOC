@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 594390540288
-    m_Localized: "Configuraci\xF3n"
+    m_Localized: Opciones
     m_Metadata:
       m_Items: []
   - m_Id: 704952393728
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1015465107456
-    m_Localized: Difficultad
+    m_Localized: Dificultad
     m_Metadata:
       m_Items: []
   - m_Id: 1093781151744
