@@ -12,55 +12,80 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim; // creamos variable animador
 
     [SerializeField] private LayerMask jumpableGround; // creamos variable serializada de la capa de Ground
-    [SerializeField] private Transform feetPosition; 
-    [SerializeField] private float groundCheckCircle; 
-    private bool isGrounded;
-    [SerializeField] private float jumpForce = 14f; // creamos variable serializada de la fuerza de salto
+    [SerializeField] private Transform feet; // el transform de los pies del jugador
+    [SerializeField] private float jumpForce; // creamos variable serializada de la fuerza de salto
+    public float KBForce; // fuerza de knockback
+    public float KBCounter; // contador de knockback
+    public float KBTotalTime; // duración total del knockback
+    public bool knockFromRight; // si recibe el knockback de la derecha o no
+    private bool isGrounded; // si está en el suelo o no
 
-    [SerializeField] private float horizontalSpeed = 7f; // creamos variable serializada de la velocidad de movimiento
-    string facingDirection;
-    Vector3 baseScale; 
-
-    private float dirX = 0f; // creamos variable de dirección en el eje x
+    [SerializeField] private float horizontalSpeed; // creamos variable serializada de la velocidad de movimiento
+    private float dirX; // creamos variable de dirección en el eje x
+    string facingDirection; // dirección a la que se está mirando
+    Vector3 baseScale; // escala base
 
     private enum MovementState { idle, running, jumping, falling }; // listado de los diferentes estados
 
-    [SerializeField] private AudioSource jumpSFX;
+    [SerializeField] private AudioSource jumpSFX; // el sonido de salto
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // asignamos el rigidbody a la variable
-        coll = feetPosition.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
+        coll = feet.GetComponent<BoxCollider2D>(); // asignamos el colisionador a la variable
         anim = GetComponent<Animator>(); // asignamos el animador a la variable
-        facingDirection = RIGHT;
-        baseScale = transform.localScale;
-        
+        facingDirection = RIGHT; // se inicializa mirando a la derecha
+        baseScale = transform.localScale; // escala base es la local
+        jumpForce = 20f; // fuerza de salto
+        horizontalSpeed = 7f; // velocidad horizontal
+        KBForce = 5f; // fuerza de knockback
+        KBTotalTime = 0.2f; // tiempo de knockback
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, jumpableGround);
-        dirX = Input.GetAxis("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
-                       
-        if (Input.GetButtonDown("Jump") && isGrounded) // si presionamos la tecla de salto y estamos en el suelo
+        if (!PauseMenu.isPaused) // si no está pausado se habilita el input
         {
-            jumpSFX.Play();
-            rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
-        }  
-        UpdateAnimationState();    // actualizamos el estado de animación
+            dirX = Input.GetAxisRaw("Horizontal"); // asignamos valor del eje X en función de la tecla presionada
+
+            if (Input.GetButtonDown("Jump") && IsGrounded()) // si presionamos la tecla de salto y estamos en el suelo
+            {
+                jumpSFX.Play();
+                rb.velocity = Vector2.up * jumpForce; // si se salta, se aplica una fuerza vertical y se mantiene la velocidad horizontal
+            }
+            UpdateAnimationState(); // actualizamos el estado de animación
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+        if(KBCounter <= 0) // mientras no haya knockback aplicado
+        {
+            if(dirX > 0.1f || dirX < -0.1f)
+            {
+                rb.velocity = new Vector2(dirX * horizontalSpeed, rb.velocity.y); // la velocidad horizontal variará en función de la dirección, la velocidad vertical será la acutal          
+            }
+        }
+        else
+        {
+            if(knockFromRight == true)
+            {
+                rb.velocity = new Vector2(-KBForce, KBForce); // se aplica la fuerza de knockback en negativo
+            }
+            if(knockFromRight == false)
+            {
+                rb.velocity = new Vector2(KBForce, KBForce); // se aplica la fuerza de knockback en positivo
+            }
+
+            KBCounter -= Time.deltaTime; // se descuenta el contador 
+        }
     }
 
     private void UpdateAnimationState() // cambio de estados de animación
     {
         MovementState state;
 
-        if (dirX > 0f) // si la dirección es positiva, nos movemos a la derecha
+        if (dirX > 0.1f) // si la dirección es positiva, nos movemos a la derecha
         {
             state = MovementState.running;
             changeFacingDirection(RIGHT);
@@ -87,19 +112,24 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state); // le pasamos la posición del estado al Animator
     }
 
-    private void changeFacingDirection(string newDirection)
+    private void changeFacingDirection(string newDirection) // se cambia de dirección 
     {
-        Vector3 newScale = baseScale;
-        if(newDirection == LEFT)
+        Vector3 newScale = baseScale; // se usa una variable temporal para cambiar la escala del jugador
+        if(newDirection == LEFT) // si la dirección es izquierda
         {
-            newScale.x = -baseScale.x;
+            newScale.x = -baseScale.x; // la escala en x se hace negativa
         }
         else
         {
-            newScale.x = baseScale.x;
+            newScale.x = baseScale.x; // si no, la escala en x se hace positiva
         }
 
-        transform.localScale = newScale;
-        facingDirection = newDirection;
+        transform.localScale = newScale; // la escala local es la nueva escala
+        facingDirection = newDirection; // la dirección en la que se está moviendo es la nueva dirección
+    }
+
+    private bool IsGrounded() // mira si está tocando suelo
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, 0.1f, jumpableGround); // se hace un boxcast del colisionador del jugador sobre todo lo que esté marcado como "jumpableGround"
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - PlayerFeet
   - Collectible
   - BG Music
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Action Layer
+  - Background
   - 
   - 
   - 
@@ -48,9 +49,15 @@ TagManager:
   - name: Background
     uniqueID: 3111641747
     locked: 0
+  - name: Terrain
+    uniqueID: 1391909369
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Terrain
-    uniqueID: 1391909369
+  - name: Action Layer
+    uniqueID: 1805137859
+    locked: 0
+  - name: UI
+    uniqueID: 3742832773
     locked: 0

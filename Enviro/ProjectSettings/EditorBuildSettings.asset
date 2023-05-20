@@ -9,12 +9,35 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 77c06175e1afd8f41934c16d1366d92f
   - enabled: 1
-    path: Assets/Scenes/Level_01.unity
+    path: Assets/Scenes/Level_1_0.unity
     guid: 25d175ceb2328c54cb404796ec1947d8
   - enabled: 1
-    path: Assets/Scenes/Level_02.unity
-    guid: 4efd00c72dbd11442a47e268560ed01c
+    path: Assets/Scenes/Level_1_1.unity
+    guid: 86ee72086d652cb44a70d48f4d177d05
+  - enabled: 1
+    path: Assets/Scenes/Level_1_2.unity
+    guid: 3788b9361c84a014f96b2ec40f6ec1b0
+  - enabled: 1
+    path: Assets/Scenes/Level_2_0.unity
+    guid: 724aa315d63c8a14b81fcc824d823bec
+  - enabled: 1
+    path: Assets/Scenes/Level_2_1.unity
+    guid: 62bacc7e3559e324a96cdae53d8b3591
+  - enabled: 1
+    path: Assets/Scenes/Level_2_2.unity
+    guid: 4d10e393b240b1240b4bb8b80f51c859
+  - enabled: 1
+    path: Assets/Scenes/Level_3_0.unity
+    guid: b719af7bef1020745ab5ded42358b26c
+  - enabled: 1
+    path: Assets/Scenes/Level_3_1.unity
+    guid: 8091e0072b6e5bf41aa3c422c4ac2468
+  - enabled: 1
+    path: Assets/Scenes/Level_3_2.unity
+    guid: 2d1f7f28d11a27045a73017f3733f2fe
   - enabled: 1
     path: Assets/Scenes/Game_Over.unity
     guid: 39eac5734ff34934f9706f0bdd95879c
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 78433983c8b46b3438b47521e4dc4b34, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 3c0c175ef3ade5b43ba9847c315e4fd7, type: 2}

@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: String Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: String Table
+  m_TableCollectionNameGuidString: 58b3c4c0be4f35443a94a28264088a88
+  m_Entries:
+  - m_Id: 530305769472
+    m_Key: StartBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 594390540288
+    m_Key: SettingsBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 704952393728
+    m_Key: QuitBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 888025374720
+    m_Key: OptionsTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1015465107456
+    m_Key: DifficultyTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1093781151744
+    m_Key: EasyTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1168171327488
+    m_Key: NormalTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1219039846400
+    m_Key: HardTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1276787023872
+    m_Key: VolumeTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1327248695296
+    m_Key: BackBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1424590102528
+    m_Key: HealthTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1477941649408
+    m_Key: ScoreTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1533306462208
+    m_Key: PollutionTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14338042617856
+    m_Key: LanguageTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2934750380548096
+    m_Key: MainMenuBtn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942645881004032
+    m_Key: WonText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942721315561472
+    m_Key: LostText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2942903449018368
+    m_Key: DiedText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4051567735988224
+    m_Key: ResumeTxt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4051741178847232
+    m_Key: PausedTxt
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5125306556407611416
+  references:
+    version: 2
+    RefIds:
+    - rid: 5125306556407611416
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1683475757774
