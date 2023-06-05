@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2543
     height: 1341
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 108
+  controlID: 42
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 1338
     height: 764
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -415,9 +415,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c8750000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ccd2ffff28d4ffff68dffffff8f4ffff58f5ffff14f7fffff8faffff
+      m_ExpandedIDs: 36a5ffff0aa6ffff4ca8ffffb0a9ffff14abffff78acffffdcadffff40afffffa4b0ffffcab2fffff0b4ffff3ab7ffff82b7fffff2beffff9cc2ffffacd7ffffb4d7ffffc0d7ffffe4d7ffffc8e5ffff88e6ffffd0e8ffff3aeaffffa4ebffff0eedffff78eeffffe2efffff4cf1ffff78f3ffffa4f5fffff4f7ffff42f8ffffdaf8fffff8faffff34850000a2850000ba850000108600002486000054930000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -836,9 +836,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1332.9702, y: 581.0148, z: -6.97142}
+    m_Target: {x: 1331.7793, y: 580.9059, z: -6.9561157}
     speed: 2
-    m_Value: {x: 1332.9702, y: 581.0148, z: -6.97142}
+    m_Value: {x: 960, y: 540, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -888,9 +888,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 755.7485
+    m_Target: 754.2181
     speed: 2
-    m_Value: 755.7485
+    m_Value: 1112.6573
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1134,7 +1134,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI Scripts
+    - Assets/Sprites/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1142,16 +1142,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/UI Scripts
+  - Assets/Sprites/UI
   m_LastFoldersGridSize: 64
   m_LastProjectPath: C:\Users\Usuario\Desktop\TFG - Enviro\Enviro-TFG-UOC\Enviro
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9e780000
-    m_LastClickedID: 30878
-    m_ExpandedIDs: 000000004a7000004c7000004e70000050700000527000005470000056700000587000005a7000005c70000094710000987100009a71000000ca9a3b
+    m_SelectedIDs: ba8f0000
+    m_LastClickedID: 36794
+    m_ExpandedIDs: 00000000487000004a7000004c7000004e70000050700000527000005470000056700000587000005a7000005e700000a271000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1207,7 +1207,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300006e67000066600000fe6000000261000006610000b0840000227300007c7200004e730000546e0000000000003c8600003c7e00007a72000092780000c86f0000
+    m_ExpandedInstanceIDs: c62300006e67000066600000fe6000000261000006610000b0840000227300007c7200004e730000546e0000000000003c8600003c7e00007a72000092780000c86f0000ce6e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1426,5 +1426,5 @@ MonoBehaviour:
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: fadb2da0d10e481469ded3b17a58f1b4
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpriteFrameModule
