@@ -269,7 +269,7 @@ MonoBehaviour:
   KBCounter: 0
   KBTotalTime: 0
   knockFromRight: 0
-  horizontalSpeed: 7
+  horizontalSpeed: 10
   jumpSFX: {fileID: 8366160739117122946}
 --- !u!114 &4815831975196953874
 MonoBehaviour:
