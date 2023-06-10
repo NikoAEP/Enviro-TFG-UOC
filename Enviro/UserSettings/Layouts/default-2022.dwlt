@@ -119,7 +119,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
   controlID: 116
+=======
+  controlID: 42
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,10 +191,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     width: 688
     height: 773
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+    width: 685
+    height: 764
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -213,8 +224,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 688
     y: 0
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     width: 1347
     height: 773
+=======
+    width: 1338
+    height: 764
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
@@ -417,7 +433,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
       m_ExpandedIDs: 3ce6ffff08e7ffff4ae9ffffaeeaffff12ecffff76edffffdaeeffff3ef0ffffa2f1ffffc8f3ffffeef5ffff38f8ffff82f8fffff8faffff
+=======
+      m_ExpandedIDs: 36a5ffff0aa6ffff4ca8ffffb0a9ffff14abffff78acffffdcadffff40afffffa4b0ffffcab2fffff0b4ffff3ab7ffff82b7fffff2beffff9cc2ffffacd7ffffb4d7ffffc0d7ffffe4d7ffffc8e5ffff88e6ffffd0e8ffff3aeaffffa4ebffff0eedffff78eeffffe2efffff4cf1ffff78f3ffffa4f5fffff4f7ffff42f8ffffdaf8fffff8faffff34850000a2850000ba850000108600002486000054930000
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -836,9 +856,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     m_Target: {x: 970.1136, y: 579.0153, z: -3.333085}
     speed: 2
     m_Value: {x: 970.1136, y: 579.0153, z: -3.333085}
+=======
+    m_Target: {x: 1331.7793, y: 580.9059, z: -6.9561157}
+    speed: 2
+    m_Value: {x: 960, y: 540, z: 0}
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -888,9 +914,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     m_Target: 706.5994
     speed: 2
     m_Value: 706.5994
+=======
+    m_Target: 754.2181
+    speed: 2
+    m_Value: 1112.6573
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1134,7 +1166,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Sprites/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1142,16 +1174,23 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Sprites/UI
   m_LastFoldersGridSize: 64
   m_LastProjectPath: C:\Users\Usuario\Desktop\TFG - Enviro\Enviro-TFG-UOC\Enviro
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     scrollPos: {x: 0, y: 55}
     m_SelectedIDs: 92710000
     m_LastClickedID: 29074
     m_ExpandedIDs: 000000004c7000004e70000050700000527000005470000056700000587000005a7000005c7000005e70000000ca9a3b
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ba8f0000
+    m_LastClickedID: 36794
+    m_ExpandedIDs: 00000000487000004a7000004c7000004e70000050700000527000005470000056700000587000005a7000005e700000a271000000ca9a3b
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1179,7 +1218,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD:Enviro/UserSettings/Layouts/default-2022.dwlt
     m_ExpandedIDs: 000000004c7000004e70000050700000527000005470000056700000587000005a7000005c7000005e700000
+=======
+    m_ExpandedIDs: 00000000487000004a7000004c7000004e70000050700000527000005470000056700000587000005a7000005c7000005e700000
+>>>>>>> fe60cdd7d61bc57b39841fc2c123274e12915c5c:Enviro_Code/UserSettings/Layouts/default-2022.dwlt
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
