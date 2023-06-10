@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         facingDirection = RIGHT; // se inicializa mirando a la derecha
         baseScale = transform.localScale; // escala base es la local
         jumpForce = 20f; // fuerza de salto
-        horizontalSpeed = 7f; // velocidad horizontal
+        horizontalSpeed = 10f; // velocidad horizontal
         KBForce = 5f; // fuerza de knockback
         KBTotalTime = 0.2f; // tiempo de knockback
     }
