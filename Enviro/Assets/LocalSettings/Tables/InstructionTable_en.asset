@@ -42,6 +42,41 @@ MonoBehaviour:
     m_Localized: Use these keys to jump.
     m_Metadata:
       m_Items: []
+  - m_Id: 9427484821938176
+    m_Localized: This is the current pollution level. Collect Recyclos and destroy
+      Surabas to make sure it stays low.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427744533241856
+    m_Localized: Pollution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9428148415356928
+    m_Localized: Health
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9428271459459072
+    m_Localized: This is your health bar. Make sure you don't get hit by the Surabas
+      and survive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9429815688945664
+    m_Localized: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9429934110924800
+    m_Localized: This is your score. Collect Recyclos or destroy Surabas to gain
+      more points.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9441740745334784
+    m_Localized: Skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9442064428163072
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
