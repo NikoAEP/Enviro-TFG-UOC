@@ -36,6 +36,40 @@ MonoBehaviour:
     m_Localized: Usa estas teclas para saltar.
     m_Metadata:
       m_Items: []
+  - m_Id: 9427484821938176
+    m_Localized: "Esta es la contaminaci\xF3n actual. Colecciona Recyclos y destruye
+      Surabas para mantenerla baja."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9427744533241856
+    m_Localized: "Contaminaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9428148415356928
+    m_Localized: Vida
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9428271459459072
+    m_Localized: "Esta es tu vida. Evita que te da\xF1en las Surabas y sobrevive."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9429815688945664
+    m_Localized: "Puntuaci\xF3n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9429934110924800
+    m_Localized: "Esta es la punutaci\xF3n. Colecciona Recyclos o destruye Surabas
+      para obtener m\xE1s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9441740745334784
+    m_Localized: Saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9442064428163072
+    m_Localized: Siguiente
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
